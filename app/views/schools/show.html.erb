@@ -19,11 +19,6 @@
   <%= @school.zipcode %>
 </p>
 
-<p>
-  <strong>Zipcode:</strong>
-  <%= @school.zipcode %>
-</p>
-
 <% if user_signed_in? %>
   <% if current_user.admin? %>
     <%= link_to 'Edit', edit_school_path(@school), class: "btn btn-default" %>
