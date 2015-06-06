@@ -5,7 +5,7 @@
     <h2>School: <%= @school.name %></h2>
   </div>
   <div class="panel-body">
-    <p><b>Located in <%= @school.city %>, <%= @school.state %> (  <%= @school.zipcode %>)</b></p>
+    <p><b>Located in <%= @school.city %>, <%= @school.state %> (<%= @school.zipcode %>)</b></p>
     <p><%= @school.info %></p>
     <% if user_signed_in? %>
       <% if current_user.admin? %>
@@ -25,6 +25,8 @@
       <% @school.teachers.each do |teacher| %>  
         <div class="well well-sm">  
           <%= link_to "#{teacher.name}", teacher_path(teacher) %>
+          <br/>
+          <b>Description:</b> <%= @school.teachers.description %>
         </div>
       <% end %>
       <p> Want to make a new teacher? </p>

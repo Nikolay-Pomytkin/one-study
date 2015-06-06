@@ -19,10 +19,16 @@
     <%= f.label :description %><br>
     <%= f.text_area :description %>
   </div>
-  <div class="field">
-    <%= f.label :teacher_id %><br>
-    <%= f.number_field :teacher_id %>
+  
+  <% if params[:teacher_id] %>
+    <%= hidden_field_tag :teacher_id, params[:teacher_id] %>
+  <% else %>
+  <div class="form-group">
+    <%= f.label :teacher_id %>
+    <%= f.number_field :teacher_id, class: "form_control"%>  
   </div>
+  <% end %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

@@ -11,8 +11,21 @@
   </div>
 </div>
 
-<% if courses.any? %>
+<% if @teacher.courses.any? %>
+
 <% else %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <p><%= teacher.name %> does not have any courses yet.</p>
+    </div>
+    <div class="panel-body">
+      <p>
+        <%= link_to new_course_path(:teacher_id => @teacher.id) do %>
+          <span class="glyphicon glyphicon-plus"></span> <%="New course for #{@teacher.name}" %>
+        <% end %>
+      </p>
+    </div>
+  </div>
 <% end %>
 
 <% if user_signed_in? %>
