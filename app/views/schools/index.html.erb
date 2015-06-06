@@ -14,4 +14,6 @@
       </div>
     <% end %>
 
-<%= link_to 'New School', new_school_path, class: "btn btn-default" %>
+<% if user_signed_in? %>
+  <%= link_to 'New School', new_school_path, class: "btn btn-default" %>
+<% end %>

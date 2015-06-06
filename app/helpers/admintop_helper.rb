@@ -1,0 +1,2 @@
+module AdmintopHelper
+end
