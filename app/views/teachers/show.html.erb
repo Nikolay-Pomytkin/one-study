@@ -1,12 +1,22 @@
-<p>
-  <strong>Name:</strong>
-  <%= @teacher.name %>
-</p>
+<p><%= link_to 'Back', schools_path, class: "btn btn-default" %></p>
 
-<p>
-  <strong>School:</strong>
-  <%= @teacher.school.name %>
-</p>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2><b><%= @teacher.name %></b> who teaches at <b><%= @teacher.school.name %></b></h2>
+  </div>
+  <div class="panel-body">
+    <div class="well">
+      <b>Description:</b> <%= @teacher.description %>
+    </div>
+  </div>
+</div>
 
-<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
-<%= link_to 'Back', teachers_path %>
+<% if courses.any? %>
+<% else %>
+<% end %>
+
+<% if user_signed_in? %>
+  <% if current_user.admin? %>
+    <%= link_to 'Edit', edit_teacher_path(@teacher), class: "btn btn-default" %>
+  <% end %>
+<% end %>
