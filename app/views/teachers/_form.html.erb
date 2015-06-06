@@ -18,7 +18,10 @@
   
   <% if params[:school_id] %>
     <%= hidden_field_tag :school_id, params[:school_id] %>
-    what should the else be?
+  <% else %>
+  <div class="form-group">
+    <%= %>  
+  </div>
   <% end %>
   
   <div class="actions">

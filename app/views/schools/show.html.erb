@@ -5,7 +5,8 @@
     <h2>School: <%= @school.name %></h2>
   </div>
   <div class="panel-body">
-    <p>Located in <%= @school.city %>, <%= @school.state %> (  <%= @school.zipcode %>)</p>
+    <p><b>Located in <%= @school.city %>, <%= @school.state %> (  <%= @school.zipcode %>)</b></p>
+    <p><%= @school.info %></p>
     <% if user_signed_in? %>
       <% if current_user.admin? %>
         <%= link_to 'Edit', edit_school_path(@school), class: "btn btn-default" %>
@@ -37,9 +38,9 @@
   
   <% else %>
   
-  <div class="panel">
+  <div class="panel panel-default">
     <div class="panel-heading">
-      There are no teachers at <%= @school.name %></p>
+      <h2>There are no teachers at <b><%= @school.name %></b></h2>
     </div>
     <div class="panel-body">
       <p> Want to make a new teacher? </p>
