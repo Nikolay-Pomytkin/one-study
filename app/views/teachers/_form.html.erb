@@ -11,18 +11,14 @@
     </div>
   <% end %>
 
-  <div class="field">
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
   
   <% if params[:school_id] %>
     <%= hidden_field_tag :school_id, params[:school_id] %>
-  <% else %>
-    <div class="field">
-      <%= f.label :school_id %><br>
-      <%= f.number_field :school_id %>
-    </div>
+    what should the else be?
   <% end %>
   
   <div class="actions">
