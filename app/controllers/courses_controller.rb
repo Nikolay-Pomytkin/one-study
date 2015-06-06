@@ -15,7 +15,7 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @teacher = Teacher.find_by_id(params[:teacher_id])
-    @course = Course.new(school_id: params[:course_id])
+    @course = Course.new(teacher_id: params[:course_id])
   end
 
   # GET /courses/1/edit
