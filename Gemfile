@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+# Rails Dependencies
 gem 'rails', '4.2.1'
 gem 'sqlite3'
 gem 'sass-rails', '~> 4.0.3'
@@ -11,7 +12,6 @@ gem 'jbuilder', '~> 2.0'
 gem 'sdoc', '~> 0.4.0',          group: :doc
 gem 'spring',        group: :development
 
+# One Study Dependencies
 gem 'bootstrap-sass'
-
-#devise
 gem 'devise'
