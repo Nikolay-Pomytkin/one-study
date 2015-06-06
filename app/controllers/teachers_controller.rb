@@ -29,10 +29,8 @@ class TeachersController < ApplicationController
     respond_to do |format|
       if @teacher.save
         format.html { redirect_to @teacher, notice: 'Teacher was successfully created.' }
-        format.json { render :show, status: :created, location: @teacher }
       else
         format.html { render :new }
-        format.json { render json: @teacher.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -43,10 +41,8 @@ class TeachersController < ApplicationController
     respond_to do |format|
       if @teacher.update(teacher_params)
         format.html { redirect_to @teacher, notice: 'Teacher was successfully updated.' }
-        format.json { render :show, status: :ok, location: @teacher }
       else
         format.html { render :edit }
-        format.json { render json: @teacher.errors, status: :unprocessable_entity }
       end
     end
   end
@@ -57,7 +53,6 @@ class TeachersController < ApplicationController
     @teacher.destroy
     respond_to do |format|
       format.html { redirect_to teachers_url, notice: 'Teacher was successfully destroyed.' }
-      format.json { head :no_content }
     end
   end
 
