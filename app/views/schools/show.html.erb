@@ -1,26 +1,51 @@
 <%= link_to 'Back', schools_path, class: "btn btn-default"%><br/>
-<p>
-  <strong>Name:</strong>
-  <%= @school.name %>
-</p>
+<br/>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2>School: <%= @school.name %></h2>
+  </div>
+  <div class="panel-body">
+    <p>Located in <%= @school.city %>, <%= @school.state %> (  <%= @school.zipcode %>)</p>
+    <% if user_signed_in? %>
+      <% if current_user.admin? %>
+        <%= link_to 'Edit', edit_school_path(@school), class: "btn btn-default" %>
+        <%= link_to 'Delete', school_path(@school), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+      <% end %>
+  <% end %>
+  </div>
+</div>
 
-<p>
-  <strong>State:</strong>
-  <%= @school.state %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @school.city %>
-</p>
-
-<p>
-  <strong>Zipcode:</strong>
-  <%= @school.zipcode %>
-</p>
-
-<% if user_signed_in? %>
-  <% if current_user.admin? %>
-    <%= link_to 'Edit', edit_school_path(@school), class: "btn btn-default" %>
-  <% end%>
-<% end %>
+<% if @teachers.any? %>
+  <div class="panel panel-default">
+    <div class="panel-heading">
+      <h2> Teachers that work at <b><%= @school.name %></b></h2>
+    </div>
+    <div class="panel-body">
+      <% @school.teachers.each do |teacher| %>  
+        <div class="well well-sm">  
+          <%= link_to "#{teacher.name}", teacher_path(teacher) %>
+        </div>
+      <% end %>
+      <p> Want to make a new teacher? </p>
+      <p>
+        <%= link_to new_teacher_path(:school_id => @school.id) do %>
+          <span class="glyphicon glyphicon-plus"></span> <%="New teacher at #{@school.name}" %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <% else %>
+  <div class="panel">
+    <div class="panel-heading">
+      There are no teachers at <%= @school.name %></p>
+    </div>
+    <div class="panel-body">
+      <p> Want to make a new teacher? </p>
+      <p>
+        <%= link_to new_teacher_path(:school_id => @school.id) do %>
+          <span class="glyphicon glyphicon-plus"></span> <%="New teacher at #{@school.name}" %>
+        <% end %>
+      </p>
+    </div>
+  </div>
+  <% end %>

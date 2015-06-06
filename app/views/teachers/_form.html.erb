@@ -15,10 +15,16 @@
     <%= f.label :name %><br>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :school_id %><br>
-    <%= f.number_field :school_id %>
-  </div>
+  
+  <% if params[:school_id] %>
+    <%= hidden_field_tag :school_id, params[:school_id] %>
+  <% else %>
+    <div class="field">
+      <%= f.label :school_id %><br>
+      <%= f.number_field :school_id %>
+    </div>
+  <% end %>
+  
   <div class="actions">
     <%= f.submit %>
   </div>

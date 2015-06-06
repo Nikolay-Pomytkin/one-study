@@ -14,7 +14,7 @@ class TeachersController < ApplicationController
 
   # GET /teachers/new
   def new
-    @teacher = Teacher.new
+    @teacher = Teacher.new(school_id: params[:school_id])
   end
 
   # GET /teachers/1/edit
@@ -24,7 +24,7 @@ class TeachersController < ApplicationController
   # POST /teachers
   # POST /teachers.json
   def create
-    @teacher = Teacher.new(teacher_params)
+    @teacher = Teacher.new(teacher_params.merge(school_id: params[:school_id]))
 
     respond_to do |format|
       if @teacher.save
