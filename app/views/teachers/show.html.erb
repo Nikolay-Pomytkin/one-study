@@ -1,5 +1,3 @@
-<p id="notice"><%= notice %></p>
-
 <p>
   <strong>Name:</strong>
   <%= @teacher.name %>
@@ -7,7 +5,7 @@
 
 <p>
   <strong>School:</strong>
-  <%= @teacher.school_id %>
+  <%= @teacher.school.name %>
 </p>
 
 <%= link_to 'Edit', edit_teacher_path(@teacher) %> |
