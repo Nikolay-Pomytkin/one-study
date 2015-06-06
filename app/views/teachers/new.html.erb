@@ -1,4 +1,11 @@
-<h1>New teacher</h1>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <b><h1>New teacher
+      <% if params[:school_id] %>
+        in <%= @school.name %>
+      <% end %>
+    </h1></b>
+  </div>
 
 <%= render 'form' %>
 

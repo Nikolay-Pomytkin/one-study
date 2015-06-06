@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<div class="panel-body">
   <div class="form-group">
     <%= f.label :name %><br>
     <%= f.text_field :name, class: "form-control" %>
@@ -20,11 +20,14 @@
     <%= hidden_field_tag :school_id, params[:school_id] %>
   <% else %>
   <div class="form-group">
-    <%= %>  
+    <%= f.label :school_id %>
+    <%= f.number_field :school_id, class: "form_control"%>  
   </div>
   <% end %>
   
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit class: "btn btn-default"%>
   </div>
+</div>
+</div>
 <% end %>
