@@ -10,8 +10,9 @@
             <%= school.info %>
             <% if user_signed_in? %>
               <%if current_user.admin? %>
+                <br/>
                 <%= link_to 'Edit', edit_school_path(school), class: "btn btn-default" %>
-                <%= link_to 'Delete', school, method: :delete, data: { confirm: 'Are you sure?', class: "btn btn-default" } %>
+                <%= link_to 'Delete', school, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
                <% end %> 
             <% end %>
           </div>
