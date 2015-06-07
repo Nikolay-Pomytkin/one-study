@@ -5,32 +5,37 @@
     <h2><b><%= @teacher.name %></b> who teaches at <b><%= @teacher.school.name %></b></h2>
   </div>
   <div class="panel-body">
-    <div class="well">
       <b>Description:</b> <%= @teacher.description %>
-    </div>
+      <% if user_signed_in? %>
+        <% if current_user.admin? %>
+          <br/><br/>
+          <%= link_to 'Edit', edit_teacher_path(@teacher), class: "btn btn-default" %>
+          <%= link_to 'Delete', teacher_path(@teacher), method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+        <% end %>
+      <% end %>
   </div>
 </div>
 
-<% if @teacher.courses.any? %>
-   <div class="panel panel-default">
+<% if @teacher_courses.any? %>
+  <div class="panel panel-default">
     <div class="panel-heading">
-      <h2> <%= @teacher.name %>'s courses:</b></h2>
+      <h2> <%= @teacher.name %>'s courses:</h2>
     </div>
     <div class="panel-body">
-      <% @teacher.courses.each do |teacher| %>  
+      <% @teacher_courses.each do |course| %>  
         <div class="well well-sm">  
-          <%= link_to "#{course.name}", course_path(course) %>
-          <br/>
-          <b>Description:</b> <%= @teacher.course.description %>
+          <p><%= link_to "#{course.name}", course_path(course) %></p>
+          <b>Description:</b> <%= course.description %>
         </div>
       <% end %>
+    </div>
 <% else %>
   <div class="panel panel-default">
     <div class="panel-heading">
       <p><b><%= @teacher.name %></b> does not have any courses yet.</p>
     </div>
+  <% if user_signed_in?%>
     <div class="panel-body">
-      <% if user_signed_in?%>
         <p>
           <%= link_to new_course_path(:teacher_id => @teacher.id) do %>
           <span class="glyphicon glyphicon-plus"></span> <%="New course for #{@teacher.name}" %>
@@ -39,10 +44,4 @@
       <% end %>  
     </div>
   </div>
-<% end %>
-
-<% if user_signed_in? %>
-  <% if current_user.admin? %>
-    <%= link_to 'Edit', edit_teacher_path(@teacher), class: "btn btn-default" %>
-  <% end %>
 <% end %>

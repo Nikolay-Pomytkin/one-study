@@ -10,11 +10,12 @@ class TeachersController < ApplicationController
   # GET /teachers/1
   # GET /teachers/1.json
   def show
+    @teacher_courses = @teacher.courses.all
   end
 
   # GET /teachers/new
   def new
-    @school = School.find_by_id(params[:school_id])
+    @school = School.find_by(params[:school_id])
     @teacher = Teacher.new(school_id: params[:school_id])
   end
 

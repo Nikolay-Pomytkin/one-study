@@ -10,26 +10,27 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
+  
+<div class="panel-body">
+  <div class="form-group">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, class: "form-control" %>
   </div>
-  <div class="field">
+  <div class="form-group">
     <%= f.label :description %><br>
-    <%= f.text_area :description %>
+    <%= f.text_area :description, class: "form-control" %>
   </div>
   
   <% if params[:teacher_id] %>
     <%= hidden_field_tag :teacher_id, params[:teacher_id] %>
   <% else %>
-  <div class="form-group">
-    <%= f.label :teacher_id %>
-    <%= f.number_field :teacher_id, class: "form_control"%>  
-  </div>
+    <div class="form-group">
+      <%= f.label :teacher_id %>
+      <%= f.number_field :teacher_id, class: "form-control"%>  
+    </div>
   <% end %>
-  
+</div>
+<div class="panel-footer">
   <div class="actions">
-    <%= f.submit %>
-  </div>
+    <%= f.submit class: "btn btn-primary" %>
 <% end %>
