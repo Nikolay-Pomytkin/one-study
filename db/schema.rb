@@ -14,7 +14,7 @@
 ActiveRecord::Schema.define(version: 20150606162505) do
 
   create_table "courses", force: :cascade do |t|
-    t.string   "name",        limit: 255
+    t.string   "name"
     t.text     "description"
     t.integer  "teacher_id"
     t.datetime "created_at"
@@ -22,7 +22,7 @@ ActiveRecord::Schema.define(version: 20150606162505) do
   end
 
   create_table "guides", force: :cascade do |t|
-    t.string   "title",      limit: 255
+    t.string   "title"
     t.text     "body"
     t.integer  "user_id"
     t.integer  "course_id"
@@ -31,17 +31,17 @@ ActiveRecord::Schema.define(version: 20150606162505) do
   end
 
   create_table "schools", force: :cascade do |t|
-    t.string   "name",       limit: 255
-    t.string   "state",      limit: 255
-    t.string   "city",       limit: 255
-    t.string   "zipcode",    limit: 255
+    t.string   "name"
+    t.string   "state"
+    t.string   "city"
+    t.string   "zipcode"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.text     "info"
   end
 
   create_table "teachers", force: :cascade do |t|
-    t.string   "name",        limit: 255
+    t.string   "name"
     t.integer  "school_id"
     t.datetime "created_at"
     t.datetime "updated_at"

@@ -1,6 +1,11 @@
-<h1>Editing course</h1>
-
+<div class="panel panel-default">
+  <div class="panel panel-heading">
+    <h1>Editing course</h1>
+  </div>
+<div class="panel body">
 <%= render 'form' %>
 
 <%= link_to 'Show', @course %> |
-<%= link_to 'Back', courses_path %>
+<%= link_to 'Back', teacher_path(@course.teacher) %>
+  </div>
+</div>
