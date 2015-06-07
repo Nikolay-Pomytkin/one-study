@@ -11,9 +11,9 @@
     <% end %>
     <% if user_signed_in? %>
       <% if current_user.admin? %>
-        <%= link_to 'Edit', edit_course_path(@course), class: "btn btn-default" %> |
+        <%= link_to 'Edit', edit_course_path(@course), class: "btn btn-default" %>
       <% end %>
     <% end %>
-    <%= link_to 'Back', courses_path, class: "btn btn-default" %>
+    <%= link_to 'Back', teacher_path(@course.teacher), class: "btn btn-default" %>
   </div>
 </div>
