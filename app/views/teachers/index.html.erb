@@ -1,38 +1,39 @@
-<h1>Listing teachers</h1>
-
-<table class="table">
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>School</th>
-      <th>Description</th>
-      <% if user_signed_in? %>
-        <% if current_user.admin? %>
-          <th colspan="3"></th>
-        <% end %>
-      <% end %>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @teachers.each do |teacher| %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1>Listing teachers</h1>
+  </div>
+  <table class="table">
+    <thead>
       <tr>
-        <td><%= teacher.name %></td>
-        <td><%= teacher.school_id %></td>
-        <td><%= teacher.description %></td>
+        <th>Name</th>
+        <th>School</th>
+        <th>Description</th>
         <% if user_signed_in? %>
           <% if current_user.admin? %>
-            <td><%= link_to 'Show', teacher %></td>
-            <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-            <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <th colspan="3"></th>
           <% end %>
         <% end %>
       </tr>
-    <% end %>
-  </tbody>
-</table>
-
-<br>
-<% if user_signed_in? %>
-  <%= link_to 'New Teacher', new_teacher_path %>
-<% end %>
+    </thead>
+  
+    <tbody>
+      <% @teachers.each do |teacher| %>
+        <tr>
+          <td><%= teacher.name %></td>
+          <td><%= teacher.school_id %></td>
+          <td><%= teacher.description %></td>
+          <% if user_signed_in? %>
+            <% if current_user.admin? %>
+              <td><%= link_to 'Show', teacher %></td>
+              <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
+              <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% if user_signed_in? %>
+    <div class="panel-footer">  <%= link_to 'New Teacher', new_teacher_path, class: "btn btn-primary" %></div>
+  <% end %>
+</div>
