@@ -1,7 +1,10 @@
-<h1>Editing school</h1>
+<div class="panel panel-default">
+  <div class="panel panel-heading">
+    <h1>Editing school</h1>
+  </div>
+  <div class="panel-body">
+    <%= render 'form' %>
 
-<%= render 'form' %>
-
-<%= link_to 'Show', @school %>
-<br/>
+<%= link_to 'Show', @school, class: "btn btn-default" %>
 <%= link_to 'Back', schools_path, class: "btn btn-default" %>
+</div>
