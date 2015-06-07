@@ -1,19 +1,19 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @course.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @course.description %>
-</p>
-
-<p>
-  <strong>Teacher:</strong>
-  <%= @course.teacher_id %>
-</p>
-
-<%= link_to 'Edit', edit_course_path(@course) %> |
-<%= link_to 'Back', courses_path %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h2><b><%= @course.name %></b> taught by <b><%= @course.teacher.name%></b></h2>
+  </div>
+  <div class="panel-body">
+    <b>Description:</b> <%= @course.description %>
+  </div>
+  <div class="panel-footer">
+    <% if user_signed_in %>
+      <% link_to %>
+    <% end %>
+    <% if user_signed_in? %>
+      <% if current_user.admin? %>
+        <%= link_to 'Edit', edit_course_path(@course), class: "btn btn-default" %> |
+      <% end %>
+    <% end %>
+    <%= link_to 'Back', courses_path, class: "btn btn-default" %>
+  </div>
+</div>
