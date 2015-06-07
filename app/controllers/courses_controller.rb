@@ -15,7 +15,7 @@ class CoursesController < ApplicationController
   # GET /courses/new
   def new
     @teacher = Teacher.find_by_id(params[:teacher_id])
-    @course = Course.new(course_id: params[:course_id])
+    @course = Course.new(teacher_id: params[:teacher_id])
   end
 
   # GET /courses/1/edit
@@ -25,7 +25,7 @@ class CoursesController < ApplicationController
   # POST /courses
   # POST /courses.json
   def create
-    @course = Course.new(course_params)
+    @course = Course.new(course_params.merge(teacher_id: params[:teacher_id]))
 
     respond_to do |format|
       if @course.save
