@@ -1,12 +1,6 @@
 class GuidesController < ApplicationController
   before_action :set_guide, only: [:show, :edit, :update, :destroy]
 
-  # GET /guides
-  # GET /guides.json
-  def index
-    @guides = Guide.all
-  end
-
   # GET /guides/1
   # GET /guides/1.json
   def show

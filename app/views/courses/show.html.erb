@@ -6,7 +6,7 @@
     <b>Description:</b> <%= @course.description %>
   </div>
   <div class="panel-footer">
-    <% if user_signed_in %>
+    <% if user_signed_in? %>
       <% link_to %>
     <% end %>
     <% if user_signed_in? %>
