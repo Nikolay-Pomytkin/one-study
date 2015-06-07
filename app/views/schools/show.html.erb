@@ -29,11 +29,13 @@
           <b>Description:</b> <%= teacher.description %>
         </div>
       <% end %>
-      <p> Want to make a new teacher? </p>
-      <div class="well well-sm">
-        <%= link_to new_teacher_path(:school_id => @school.id) do %>
-          <span class="glyphicon glyphicon-plus"></span> <%="New teacher at #{@school.name}" %>
-        <% end %>
+      <% if user_signed_in? %>
+        <p> Want to make a new teacher? </p>
+        <div class="well well-sm">
+          <%= link_to new_teacher_path(:school_id => @school.id) do %>
+            <span class="glyphicon glyphicon-plus"></span> <%="New teacher at #{@school.name}" %>
+          <% end %>
+      <% end %>
       </div>
     </div>
   </div>
@@ -44,6 +46,7 @@
     <div class="panel-heading">
       <h2>There are no teachers at <b><%= @school.name %></b></h2>
     </div>
+  <% if user_signed_in? %>
     <div class="panel-body">
       <p> Want to make a new teacher? </p>
       <div class="well well-sm">
@@ -52,5 +55,6 @@
         <% end %>
       </div>
     </div>
+  <% end %>
   </div>
   <% end %>
