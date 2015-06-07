@@ -19,12 +19,11 @@
     <tbody>
       <% @teachers.each do |teacher| %>
         <tr>
-          <td><%= teacher.name %></td>
+          <td><%= link_to "#{teacher.name}", teacher_path(teacher)%></td>
           <td><%= teacher.school_id %></td>
           <td><%= teacher.description %></td>
           <% if user_signed_in? %>
             <% if current_user.admin? %>
-              <td><%= link_to 'Show', teacher %></td>
               <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
               <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
             <% end %>
