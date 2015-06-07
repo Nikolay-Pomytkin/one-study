@@ -27,12 +27,14 @@
           <p><%= link_to "#{course.name}", course_path(course) %></p>
           <b>Description:</b> <%= course.description %>
         </div>
+      <% end %>
+      <% if user_signed_in? %>
           <div class="well well-sm">
             <%= link_to new_course_path(:teacher_id => @teacher.id) do %>
               <span class="glyphicon glyphicon-plus"></span> <%="New course for #{@teacher.name}" %>
             <% end %>
           </div>
-      <% end %>
+        <% end %>
     </div>
 <% else %>
   <div class="panel panel-default">
