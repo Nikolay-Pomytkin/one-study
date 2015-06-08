@@ -3,7 +3,12 @@
     <h2><b><%= @course.name %></b> taught by <b><%= @course.teacher.name%></b></h2>
   </div>
   <div class="panel-body">
-    <b>Description:</b> <%= @course.description %>
+    <p><b>Description:</b> <%= @course.description %></p>
+    <% if @course.guides.any? %>
+      <p>Nobody has made any study guides for this course yet</p>
+    <% else %>
+      
+    <% end %>
   </div>
   <div class="panel-footer">
     <% if user_signed_in? %>
