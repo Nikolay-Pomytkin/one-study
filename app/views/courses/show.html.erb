@@ -6,6 +6,7 @@
     <p><b>Description:</b> <%= @course.description %></p>
     <% if @course.guides.any? %>
       <p>Nobody has made any study guides for this course yet</p>
+      <%= link_to "Make a new Study Guide for #{@course}", new_guide_path%>
     <% else %>
       
     <% end %>
