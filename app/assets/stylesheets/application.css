@@ -16,3 +16,8 @@
 .navbar-margins{
   margin-right: 10px;
 }
+* {
+  -webkit-border-radius: 0 !important;
+     -moz-border-radius: 0 !important;
+          border-radius: 0 !important;
+}
