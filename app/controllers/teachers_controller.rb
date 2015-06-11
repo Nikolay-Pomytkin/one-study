@@ -1,30 +1,22 @@
 class TeachersController < ApplicationController
   before_action :set_teacher, only: [:show, :edit, :update, :destroy]
 
-  # GET /teachers
-  # GET /teachers.json
   def index
     @teachers = Teacher.all
   end
 
-  # GET /teachers/1
-  # GET /teachers/1.json
   def show
     @teacher_courses = @teacher.courses.all
   end
 
-  # GET /teachers/new
   def new
     @school = School.find_by(params[:school_id])
     @teacher = Teacher.new(school_id: params[:school_id])
   end
 
-  # GET /teachers/1/edit
   def edit
   end
 
-  # POST /teachers
-  # POST /teachers.json
   def create
     @teacher = Teacher.new(teacher_params.merge(school_id: params[:school_id]))
 
