@@ -1,5 +1,10 @@
-<h1>Schools</h1>
-
+<div class="panel panel-default">
+<h1>&nbsp;Schools
+    <% if user_signed_in? %>
+      <%= link_to 'New School', new_school_path, class: "btn btn-default" %>
+    <% end %>
+  </h1>
+</div>
 <% @schools.each_slice(3) do |schools| %>
   <div class="row">
     <% schools.each do |school| %>
@@ -20,8 +25,4 @@
       </div>
     <% end %>
   </div>
-<% end %>
-
-<% if user_signed_in? %>
-  <%= link_to 'New School', new_school_path, class: "btn btn-default" %>
 <% end %>

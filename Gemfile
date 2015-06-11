@@ -15,3 +15,7 @@ gem 'spring',        group: :development
 # One Study Dependencies
 gem 'bootstrap-sass'
 gem 'devise'
+
+group :development do
+  gem "better_errors"
+end

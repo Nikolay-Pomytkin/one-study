@@ -1,5 +1,9 @@
-<p><%= link_to 'Back', school_path(@teacher.school), class: "btn btn-default" %></p>
-
+<p>
+  <% if @teacher.school %>
+    <%= link_to 'Back', school_path(@teacher.school), class: "btn btn-default" %></p>
+  <% else %>
+    <%= link_to 'Back', schools_path, class: "btn btn-default" %></p>
+  <% end %>
 <div class="panel panel-default">
   <div class="panel-heading">
     <h2><b><%= @teacher.name %></b> who teaches at <b><%= @teacher.school.name %></b></h2>

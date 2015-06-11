@@ -22,13 +22,11 @@
   <% if params[:school_id] %>
     <%= hidden_field_tag :school_id, params[:school_id] %>
   <% else %>
-  <div class="form-group">
-    <%= f.label :school_id %>
-    <%= f.number_field :school_id, class: "form_control"%>  
-  </div>
+    <div class="form-group">
+      <%= f.label :school_id %>
+      <%= f.number_field :school_id, class: "form_control"%>  
+    </div>
   <% end %>
-</div>
-<div class="panel-footer">
   <div class="form-group">
     <%= f.submit class: "btn btn-default"%>
   </div>
