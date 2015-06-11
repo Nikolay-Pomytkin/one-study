@@ -5,11 +5,6 @@
   <div class="panel-body">
     <p><b>Description:</b> <%= @course.description %></p>
     <% if @course.guides %>
-      <div class="well well-sm">
-        Nobody has made any study guides for this course yet <br/>
-        <%= link_to "Make a new Study Guide for #{@course.name}", new_guide_path%>
-      </div>
-    <% else %>
       <% @course.guides.each do |guide|%>
         <div class="panel panel-default">
           <div class="panel-header">
@@ -19,9 +14,19 @@
             <%= Guide.select("left(body, 100) as body")%>
           </div>
           <div class="panel-header">
+            <% if current_user && guide.user == current_user %>
+              <%= link_to "Edit your guide #{guide.name}", edit_guide_path(@guide) %>
+            <% else %>
+              Ask <%= guide.user %> to edit this guide <!-- future feature with acesses will add later -->
+            <% end %>
           </div>
         </div>
       <% end %>
+    <% else %>
+      <div class="well well-sm">
+        Nobody has made any study guides for this course yet <br/>
+        <%= link_to "Make a new Study Guide for #{@course.name}", new_guide_path %>
+      </div>
     <% end %>
   </div>
   <div class="panel-footer">

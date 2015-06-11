@@ -1,15 +1,11 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
 
-  # GET /courses
-  # GET /courses.json
 
-  # GET /courses/1
-  # GET /courses/1.json
   def show
+    @guide = Guide.all
   end
 
-  # GET /courses/new
   def new
     @teacher = Teacher.find_by_id(params[:teacher_id])
     @course = Course.new(teacher_id: params[:teacher_id])
