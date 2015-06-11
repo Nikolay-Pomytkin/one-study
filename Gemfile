@@ -15,4 +15,4 @@ gem 'spring',        group: :development
 # One Study Dependencies
 gem 'bootstrap-sass'
 gem 'devise'
-gem "better_errors"
+gem 'better_errors', '~> 2.1.1'
