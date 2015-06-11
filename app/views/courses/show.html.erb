@@ -4,11 +4,20 @@
   </div>
   <div class="panel-body">
     <p><b>Description:</b> <%= @course.description %></p>
-    <% if @course.guides.any? %>
+    <% if @course.guides %>
       <p>Nobody has made any study guides for this course yet</p>
-      <%= link_to "Make a new Study Guide for #{@course}", new_guide_path%>
+      <%= link_to "Make a new Study Guide for #{@course.name}", new_guide_path%>
     <% else %>
-      
+      <% @course.guides.each do |guide|%>
+        <div class="panel panel-default">
+          <div class="panel-header">
+            <%= guide.name %>
+          </div>
+          <div class="panel-body">
+          </div>
+          <div class="">
+        </div>
+      <% end %>
     <% end %>
   </div>
   <div class="panel-footer">
