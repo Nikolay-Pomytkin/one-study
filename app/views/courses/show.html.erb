@@ -25,7 +25,9 @@
     <% else %>
       <div class="well well-sm">
         Nobody has made any study guides for this course yet <br/>
-        <%= link_to "Make a new Study Guide for #{@course.name}", new_guide_path %>
+        <%= link_to  new_guide_path(:course_id => @course.id, :user_id => current_user.id) do %>
+          <span class="glyphicon glyphicon-pl">Make a new Study Guide for <%= @course.name %>
+        <% end %>
       </div>
     <% end %>
   </div>
