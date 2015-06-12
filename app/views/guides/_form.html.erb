@@ -19,14 +19,23 @@
     <%= f.label :body %><br>
     <%= f.text_area :body %>
   </div>
-  <div class="field">
-    <%= f.label :user_id %><br>
-    <%= f.number_field :user_id %>
+  <% if params[:user_id] %>
+    <%= hidden_field_tag :user_id, params[:user_id] %>
+  <% else %>
+    <div class="field">
+      <%= f.label :user_id %><br>
+      <%= f.number_field :user_id %>
+    </div>
+  <% end %>
   </div>
+  <% if params[:course_id] %>
+    <%= hidden_field_tag :course_id, params[:course_id] %>
+  <% else %>
   <div class="field">
     <%= f.label :course_id %><br>
     <%= f.number_field :course_id %>
   </div>
+  <% end %>
   <div class="actions">
     <%= f.submit %>
   </div>
