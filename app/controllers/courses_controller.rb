@@ -1,9 +1,9 @@
 class CoursesController < ApplicationController
   before_action :set_course, only: [:show, :edit, :update, :destroy]
-
-
+  
   def show
-    @guide = Guide.all
+    @guides = Guide.all
+    @name = Guide.name
   end
 
   def new

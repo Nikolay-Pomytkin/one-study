@@ -5,15 +5,15 @@
   <div class="panel-body">
     <p><b>Description:</b> <%= @course.description %></p>
     <% if @course.guides %>
-      <% @course.guides.each do |guide|%>
+      <% @course.guides.each do |guide| %>
         <div class="panel panel-default">
-          <div class="panel-header">
-            <%= guide.name %> created by <%= guide.user %>
+          <div class="panel-heading">
+            <%= guide.title %> created by <%= guide.user %>
           </div>
           <div class="panel-body">
-            <%= Guide.select("left(body, 100) as body")%>
+            <!-- show first 100 characters of guide --> <%= Guide.select("left(body, 100) as body")%>
           </div>
-          <div class="panel-header">
+          <div class="panel-footer">
             <% if current_user && guide.user == current_user %>
               <%= link_to "Edit your guide #{guide.name}", edit_guide_path(@guide) %>
             <% else %>
