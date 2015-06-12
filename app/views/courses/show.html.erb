@@ -15,9 +15,14 @@
           </div>
           <div class="panel-footer">
             <% if current_user && guide.user == current_user %>
-              <%= link_to "Edit your guide #{guide.name}", edit_guide_path(@guide) %>
+              <%= link_to "Edit your guide #{guide.title}", edit_guide_path(guide) %>
             <% else %>
               Ask <%= guide.user %> to edit this guide <!-- future feature with acesses will add later -->
+              <p>or         
+                <%= link_to  new_guide_path(:course_id => @course.id, :user_id => current_user.id) do %>
+                  <span class="glyphicon glyphicon-plus"></span>Make a new Study Guide for <%= @course.name %>
+                <% end %>
+              </p>
             <% end %>
           </div>
         </div>
@@ -26,7 +31,7 @@
       <div class="well well-sm">
         Nobody has made any study guides for this course yet <br/>
         <%= link_to  new_guide_path(:course_id => @course.id, :user_id => current_user.id) do %>
-          <span class="glyphicon glyphicon-pl">Make a new Study Guide for <%= @course.name %>
+          <span class="glyphicon glyphicon-plus"></span>Make a new Study Guide for <%= @course.name %>
         <% end %>
       </div>
     <% end %>

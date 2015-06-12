@@ -9,7 +9,7 @@ class GuidesController < ApplicationController
   # GET /guides/new
   def new
     @course = Course.find_by_id(params[:course_id])
-    @guide = Guide.new(teacher_id: params[:teacher_id], user_id: params[:user_id])
+    @guide = Guide.new(course_id: params[:course_id], user_id: params[:user_id])
   end
 
   # GET /guides/1/edit

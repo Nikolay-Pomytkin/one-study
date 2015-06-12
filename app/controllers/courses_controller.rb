@@ -3,7 +3,6 @@ class CoursesController < ApplicationController
   
   def show
     @guides = Guide.all
-    @name = Guide.name
   end
 
   def new
