@@ -19,7 +19,6 @@
     <%= f.label :description %><br>
     <%= f.text_area :description, class: "form-control" %>
   </div>
-
   <% if params[:teacher_id] %>
     <%= hidden_field_tag :teacher_id, params[:teacher_id] %>
   <% else %>

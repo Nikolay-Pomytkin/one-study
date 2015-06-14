@@ -2,5 +2,9 @@
   <div class="panel panel-heading">
     <h1>Editing course</h1>
   </div>
-<div class="panel body">
-<%= render 'form' %>
+<div class="panel-body">
+  <%= render 'form' %>
+  <%= link_to 'Back', teacher_path(@course.teacher), class: "btn btn-default" %>
+</div>
+  </div>
+</div>
