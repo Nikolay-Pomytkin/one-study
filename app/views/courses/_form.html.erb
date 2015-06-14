@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-  
+
   <div class="form-group">
     <%= f.label :name %><br>
     <%= f.text_field :name, class: "form-control" %>
@@ -19,19 +19,16 @@
     <%= f.label :description %><br>
     <%= f.text_area :description, class: "form-control" %>
   </div>
-  
+
   <% if params[:teacher_id] %>
     <%= hidden_field_tag :teacher_id, params[:teacher_id] %>
   <% else %>
     <div class="form-group">
       <%= f.label :teacher_id %>
-      <%= f.number_field :teacher_id, class: "form-control"%>  
+      <%= f.number_field :teacher_id, class: "form-control"%>
     </div>
   <% end %>
   <div class="actions">
     <%= f.submit class: "btn btn-primary" %>
-    <%= link_to 'Back', teacher_path(@course.teacher), class: "btn btn-default" %>
   </div>
-</div>
-</div>
 <% end %>
