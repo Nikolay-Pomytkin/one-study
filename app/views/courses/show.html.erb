@@ -18,7 +18,7 @@
               <%= link_to "Edit your guide #{guide.title}", edit_guide_path(guide) %>
             <% else %>
               Ask <%= guide.user %> to edit this guide <!-- future feature with acesses will add later -->
-              <p>or         
+              <p>or
                 <%= link_to  new_guide_path(:course_id => @course.id, :user_id => current_user.id) do %>
                   <span class="glyphicon glyphicon-plus"></span>Make a new Study Guide for <%= @course.name %>
                 <% end %>
@@ -38,7 +38,7 @@
   </div>
   <div class="panel-footer">
     <% if user_signed_in? %>
-      <% link_to %>
+      <% # link_to %>
     <% end %>
     <% if user_signed_in? %>
       <% if current_user.admin? %>
