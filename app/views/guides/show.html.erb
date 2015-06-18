@@ -1,13 +1,22 @@
-<div class="panel panel-body">
+<div class="panel panel-default">
   <div class="panel-heading">
     <%= @guide.title %>
-  </div>
-  <div class="panel-body">
     <span class="label label-default">
       Created by <%= @guide.user.name %> for <%= @guide.course.teacher.name %>'s <%= @guide.course.name %>
     </span>
   </div>
-  <div class="panel-footer">
+  <div class="panel-body">
+    <%= @guide.body %>
+  </div>
+  <% if current_user && @guide.user == current_user %>
+    <div class="panel-footer">
+      <%= link_to "Edit", edit_guide_path(@guide), class: "btn btn-default" %>
+      <%= link_to "Delete", @guide, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger" %>
+    </div>
+  <% else %>
+    <div class="panel-footer">
       Ask <%= @guide.user.name %> for permission to edit this guide.
+    </div>
+  <% end %>
   </div>
 </div>

@@ -12,7 +12,7 @@ class GuidesController < ApplicationController
   end
 
   def edit
-  end5
+  end
 
   def create
     @guide = current_user.guides.build(guide_params.merge(course_id: params[:course_id]))
@@ -51,4 +51,4 @@ class GuidesController < ApplicationController
     def guide_params
       params.require(:guide).permit(:title, :body, :user_id, :course_id)
     end
-end
+  end
