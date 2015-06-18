@@ -8,10 +8,10 @@
       <% @course.guides.each do |guide| %>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <%= guide.title %> created by <%= guide.user %>
+            <%= guide.title %> created by <%= guide.user.name %>
           </div>
           <div class="panel-body">
-            <!-- show first 100 characters of guide --> <%= Guide.select("left(body, 100) as body")%>
+            <%= guide.body.truncate(100)%>
           </div>
           <div class="panel-footer">
             <% if current_user && guide.user == current_user %>

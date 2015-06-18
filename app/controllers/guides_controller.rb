@@ -39,7 +39,7 @@ class GuidesController < ApplicationController
   def destroy
     @guide.destroy
     respond_to do |format|
-      format.html { redirect_to guides_url, notice: 'Guide was successfully deleted.' }
+      format.html { redirect_to course_path(@guide.course), notice: 'Guide was successfully deleted.' }
     end
   end
 
