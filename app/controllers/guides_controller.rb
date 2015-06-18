@@ -1,25 +1,21 @@
 class GuidesController < ApplicationController
   before_action :set_guide, only: [:show, :edit, :update, :destroy]
 
-  # GET /guides/1
-  # GET /guides/1.json
   def show
+    @guides = Guide.all
+    @course = @guide.course
   end
 
-  # GET /guides/new
   def new
     @course = Course.find_by_id(params[:course_id])
-    @guide = Guide.new(course_id: params[:course_id], user_id: params[:user_id])
+    @guide = current_user.guides.build(course_id: params[:course_id])#Guide.new(course_id: params[:course_id])
   end
 
-  # GET /guides/1/edit
   def edit
   end
 
-  # POST /guides
-  # POST /guides.json
   def create
-    @guide = Guide.new(guide_params)
+    @guide = current_user.guides.build(guide_params.merge(course_id: params[:course_id]))
 
     respond_to do |format|
       if @guide.save
@@ -30,8 +26,6 @@ class GuidesController < ApplicationController
     end
   end
 
-  # PATCH/PUT /guides/1
-  # PATCH/PUT /guides/1.json
   def update
     respond_to do |format|
       if @guide.update(guide_params)
@@ -42,22 +36,18 @@ class GuidesController < ApplicationController
     end
   end
 
-  # DELETE /guides/1
-  # DELETE /guides/1.json
   def destroy
     @guide.destroy
     respond_to do |format|
-      format.html { redirect_to guides_url, notice: 'Guide was successfully destroyed.' }
+      format.html { redirect_to guides_url, notice: 'Guide was successfully deleted.' }
     end
   end
 
   private
-    # Use callbacks to share common setup or constraints between actions.
     def set_guide
       @guide = Guide.find(params[:id])
     end
 
-    # Never trust parameters from the scary internet, only allow the white list through.
     def guide_params
       params.require(:guide).permit(:title, :body, :user_id, :course_id)
     end

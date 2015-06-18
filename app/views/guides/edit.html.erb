@@ -1,6 +1,10 @@
-<h1>Editing guide</h1>
-
-<%= render 'form' %>
-
-<%= link_to 'Show', @guide %> |
-<%= link_to 'Back', guides_path %>
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1>Editing guide</h1>
+  </div>
+</div>
+    <%= render 'form' %>
+    <%= link_to 'Show', @guide, class: "btn btn-primary" %>
+    <%= link_to 'Back', course_path(@guide.course), class: "btn btn-default"%>
+  </div>
+</div>

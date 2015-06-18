@@ -1,24 +1,13 @@
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Title:</strong>
-  <%= @guide.title %>
-</p>
-
-<p>
-  <strong>Body:</strong>
-  <%= @guide.body %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @guide.user_id %>
-</p>
-
-<p>
-  <strong>Course:</strong>
-  <%= @guide.course_id %>
-</p>
-
-<%= link_to 'Edit', edit_guide_path(@guide) %> |
-<%= link_to 'Back', guides_path %>
+<div class="panel panel-body">
+  <div class="panel-heading">
+    <%= @guide.title %>
+  </div>
+  <div class="panel-body">
+    <span class="label label-default">
+      Created by <%= @guide.user.name %> for <%= @guide.course.teacher.name %>'s <%= @guide.course.name %>
+    </span>
+  </div>
+  <div class="panel-footer">
+      Ask <%= @guide.user.name %> for permission to edit this guide.
+  </div>
+</div>
