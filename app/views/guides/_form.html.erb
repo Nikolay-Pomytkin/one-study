@@ -10,7 +10,7 @@
       </ul>
     </div>
   <% end %>
-
+<div class="panel-body">
   <div class="form-group">
     <%= f.label :title %><br>
     <%= f.text_field :title, class: "form-control" %>
@@ -31,14 +31,14 @@
   <% if params[:course_id] %>
     <%= hidden_field_tag :course_id, params[:course_id] %>
   <% else %>
-  <div class="form-group">
-    <%= f.label :course_id %><br>
-    <%= f.number_field :course_id, class: "form-control" %>
-  </div>
-  <% end %>
+    <div class="form-group">
+      <%= f.label :course_id %><br>
+      <%= f.number_field :course_id, class: "form-control" %>
     </div>
+    <% end %>
+  </div>
   <div class="panel-footer">
-  <div class="form-group">
-    <%= f.submit class: "btn btn-primary" %> 
-
+    <div class="form-group">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
 <% end %>
