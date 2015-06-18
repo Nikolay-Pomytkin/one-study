@@ -1,9 +1,8 @@
 class GuidesController < ApplicationController
   before_action :set_guide, only: [:show, :edit, :update, :destroy]
-  before_action :authenticate_user!
-  before_action :valid_access, only: :show
 
   def show
+    @guides = Guide.all
     @course = @guide.course
   end
 
@@ -13,7 +12,7 @@ class GuidesController < ApplicationController
   end
 
   def edit
-  end
+  end5
 
   def create
     @guide = current_user.guides.build(guide_params.merge(course_id: params[:course_id]))
@@ -47,11 +46,6 @@ class GuidesController < ApplicationController
   private
     def set_guide
       @guide = Guide.find(params[:id])
-    end
-
-    def valid_access
-      @guide = current_user.guides.find_by(id: params[:id])
-      redirect_to root_path, notice: "Not authorized to view this guide" if @guide.nil?
     end
 
     def guide_params
