@@ -4,7 +4,7 @@
   </div>
   <div class="panel-body">
     <p><b>Description:</b> <%= @course.description %></p>
-    <% if @course.guides %>
+    <% if @course.guides.any? %>
       <% @course.guides.each do |guide| %>
         <div class="panel panel-default">
           <div class="panel-heading">
