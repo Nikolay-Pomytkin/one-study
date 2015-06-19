@@ -13,8 +13,12 @@
         <%= f.text_field :name, class: "form-control" %>
       </div>
 
-      <div class="form-group">
-        <%= f.input :avatar, as: :file, class: "form-control" %>
+      <div class="row">
+        <div class="col-md-1"><b> Current avatar: </b></div>
+        <div class="well well-sm col-md-2"><%= image_tag @user.avatar.url(:thumb) %></div>
+      </div>
+      <div class="form-group ">
+        <%= f.file_field :avatar, class: "form-control" %>
       </div>
 
       <div class="form-group">

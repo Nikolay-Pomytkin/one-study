@@ -5,7 +5,7 @@ class User < ActiveRecord::Base
 
 
   validates_uniqueness_of :name, :email
-  validates_presence_of :name, :email, :password
+  validates_presence_of :name, :email
 
   has_many :guides, through: :accesses
   has_many :accesses
