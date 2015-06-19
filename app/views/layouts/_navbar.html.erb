@@ -1,10 +1,26 @@
-<nav class="navbar navbar-default">
+<nav class="navbar navbar-default navbar-fixed-top">
   <div class="container-fluid">
     <div class="navbar-header">
         <%= link_to root_path, class: "navbar-brand" do %>
           <span class="glyphicon glyphicon-home"></span> One-Study
         <% end %>
     </div>
+    <div class="navbar-left">
+      <% if current_page?(schools_path) %>
+        <%= link_to "Schools", schools_path, class: "btn btn-primary navbar-btn navbar-margins" %>
+      <% else %>
+        <%= link_to "Schools", schools_path, class: "btn btn-default navbar-btn navbar-margins" %>
+      <% end %>
+      <% if current_page?(teachers_path) %>
+        <%= link_to "Teachers", teachers_path, class: "btn btn-primary navbar-btn navbar-margins" %>
+      <% else %>
+        <%= link_to "Teachers", teachers_path, class: "btn btn-default navbar-btn navbar-margins" %>
+      <% end %>
+      <% if current_page?(guides_path) %>
+        <%= link_to "Guides", guides_path, class: "btn btn-primary navbar-btn navbar-margins" %>
+      <% else %>
+        <%= link_to "Guides", guides_path, class: "btn btn-default navbar-btn navbar-margins" %>
+      <% end %>    </div>
     <div class="navbar-right">
       <% if user_signed_in? %>
         <p class="navbar-text">Signed in as <b><%= current_user.name %></b></p>
