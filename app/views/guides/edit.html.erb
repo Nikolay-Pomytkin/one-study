@@ -10,10 +10,10 @@
         <%= link_to 'Back', course_path(@guide.course), class: "btn btn-default"%>
       </div>
     </div>
-  <% else %>
+  <% else %>  
   <% end %>
 <% else %>
   <div class="well well-sm">
-    You must be <%= link_to "Signed In", new_user_session_path, %> to edit a course.
+    You must be <%= link_to "Signed In", new_user_session_path %> to edit a course.
   </div>
 <% end %>
