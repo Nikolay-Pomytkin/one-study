@@ -21,3 +21,8 @@
      -moz-border-radius: 2 !important;
           border-radius: 2 !important;
 }
+.background-welcome{
+  background-image: url(studying-student.jpg);
+  background-repeat: no-repeat;
+  background-size: cover;
+}
