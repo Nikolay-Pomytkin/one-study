@@ -17,7 +17,7 @@
   margin-right: 10px;
 }
 * {
-  -webkit-border-radius: 0 !important;
-     -moz-border-radius: 0 !important;
-          border-radius: 0 !important;
+  -webkit-border-radius: 2 !important;
+     -moz-border-radius: 2 !important;
+          border-radius: 2 !important;
 }
