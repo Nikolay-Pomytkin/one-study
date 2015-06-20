@@ -7,7 +7,9 @@ Rails.application.routes.draw do
   #Home page
   root "pages#welcome"
 
-  resources :guides
+  resources :guides do
+    resource :likes
+  end
   resources :courses
   resources :teachers
   resources :schools
