@@ -1,6 +1,10 @@
 class GuidesController < ApplicationController
   before_action :set_guide, only: [:show, :edit, :update, :destroy]
 
+  def index
+    @guides = Guide.all
+  end
+
   def show
     @guides = Guide.all
     @course = @guide.course
