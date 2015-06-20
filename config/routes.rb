@@ -8,7 +8,7 @@ Rails.application.routes.draw do
   root "pages#welcome"
 
   resources :guides do
-    resource :likes
+    resource :likes, module: :guides
   end
   resources :courses
   resources :teachers
