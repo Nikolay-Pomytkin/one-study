@@ -8,8 +8,8 @@
       <% @course.guides.each do |guide| %>
         <div class="panel panel-default">
           <div class="panel-heading">
-            <%= link_to "#{guide.title}", guide_path(guide) %> created by
-             <!-- will add link to user page later --> <%= guide.user.name %>
+            <%= link_to guide.title, guide_path(guide) %> created by
+            <%= link_to guide.user.name, user_path(guide.user) %>
           </div>
           <div class="panel-body">
             <%= guide.body.truncate(100)%>
@@ -30,7 +30,6 @@
             </div>
           <% end %>
         </div>
-      <% end %>
     <% else %>
       <div class="well well-sm">
         Nobody has made any study guides for this course yet <br/>
@@ -41,9 +40,6 @@
     <% end %>
   </div>
   <div class="panel-footer">
-    <% if user_signed_in? %>
-      <% # link_to %>
-    <% end %>
     <% if user_signed_in? %>
       <% if current_user.admin? %>
         <%= link_to 'Edit', edit_course_path(@course), class: "btn btn-default" %>

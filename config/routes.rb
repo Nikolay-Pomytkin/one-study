@@ -12,6 +12,7 @@ Rails.application.routes.draw do
   resources :teachers
   resources :schools
   resources :pages
+  resources :users
 
   #STATIC PAGES
   match '/about' => 'pages#about', via: :all
