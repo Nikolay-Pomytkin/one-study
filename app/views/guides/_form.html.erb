@@ -1,0 +1,44 @@
+<%= form_for(@guide) do |f| %>
+  <% if @guide.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@guide.errors.count, "error") %> prohibited this guide from being saved:</h2>
+
+      <ul>
+      <% @guide.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+<div class="panel-body">
+  <div class="form-group">
+    <%= f.label :title %><br>
+    <%= f.text_field :title, class: "form-control" %>
+  </div>
+  <div class="form-group">
+    <%= f.label :body %><br>
+    <%= f.text_area :body, class: "form-control" %>
+  </div>
+  <% if params[:user_id] %>
+    <%= hidden_field_tag :user_id, params[:user_id] %>
+  <% else %>
+    <div class="form-group">
+      <%= f.label :user_id %><br>
+      <%= f.number_field :user_id, class: "form-control" %>
+    </div>
+  <% end %>
+
+  <% if params[:course_id] %>
+    <%= hidden_field_tag :course_id, params[:course_id] %>
+  <% else %>
+    <div class="form-group">
+      <%= f.label :course_id %><br>
+      <%= f.number_field :course_id, class: "form-control" %>
+    </div>
+    <% end %>
+  </div>
+  <div class="panel-footer">
+    <div class="form-group">
+      <%= f.submit class: "btn btn-primary" %>
+    </div>
+<% end %>

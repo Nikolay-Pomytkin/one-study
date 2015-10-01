@@ -1,0 +1,38 @@
+<div class="panel panel-default">
+  <div class="panel-heading">
+    <h1>Teachers</h1>
+  </div>
+  <table class="table">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>School</th>
+        <th>Description</th>
+        <% if user_signed_in? %>
+          <% if current_user.admin? %>
+            <th colspan="3"></th>
+          <% end %>
+        <% end %>
+      </tr>
+    </thead>
+
+    <tbody>
+      <% @teachers.each do |teacher| %>
+        <tr>
+          <td><%= link_to "#{teacher.name}", teacher_path(teacher)%></td>
+          <td><%= teacher.school.name %></td>
+          <td><%= teacher.description.truncate(75) %></td>
+          <% if user_signed_in? %>
+            <% if current_user.admin? %>
+              <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
+              <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+            <% end %>
+          <% end %>
+        </tr>
+      <% end %>
+    </tbody>
+  </table>
+  <% if user_signed_in? %>
+    <div class="panel-footer">  <%= link_to 'New Teacher', new_teacher_path, class: "btn btn-primary" %></div>
+  <% end %>
+</div>

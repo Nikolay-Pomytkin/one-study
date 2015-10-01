@@ -1,0 +1,19 @@
+<% if user_signed_in? %>
+  <% if current_user && @guide.user == current_user %>
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <h1>Editing guide</h1>
+      </div>
+    </div>
+        <%= render 'form' %>
+        <%= link_to 'Show', @guide, class: "btn btn-primary" %>
+        <%= link_to 'Back', course_path(@guide.course), class: "btn btn-default"%>
+      </div>
+    </div>
+  <% else %>  
+  <% end %>
+<% else %>
+  <div class="well well-sm">
+    You must be <%= link_to "Signed In", new_user_session_path %> to edit a course.
+  </div>
+<% end %>
