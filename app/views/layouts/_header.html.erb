@@ -1,14 +1,14 @@
-<nav class = "ink-navigation">
-  <ul class="menu horizontal black">
-    <li class="heading active"><a href="#">Home</a></li>
+<nav class="ink-navigation">
+  <ul class="menu horizontal blue">
+    <li class="heading active"><%= link_to "Home", root_path %></li>
       <li>
-        <a href="#">Post archive</a>
+        <a href="#">Find guides</a>
           <ul class="submenu">
-              <li><a href="#">January</a></li>
-              <li><a href="#">February</a></li>
-              <li><a href="#">March</a></li>
-              <li><a href="#">...</a></li>
+              <li><a href="#">By school</a></li>
+              <li><a href="#">By teacher</a></li>
+              <li><a href="#">By course</a></li>
           </ul>
       </li>
+      <li class="heading"><%= link_to "View ur sprofile", root_path %></li>
   </ul>
 </nav>
