@@ -18,3 +18,6 @@ gem 'devise'
 gem 'paperclip'
 
 gem 'better_errors', '~> 2.1.1', group: :development
+
+# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
+gem 'tzinfo-data', platforms: [:mingw, :mswin]
