@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require ink-all
+//= require autoload
+//= require html5shiv
 //= require_tree .

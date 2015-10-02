@@ -1,3 +1,10 @@
+GIT
+  remote: git://github.com/mutablestate/ink3-rails.git
+  revision: bb30dc67924f8c05e9ac3d640ed6b0295e2cf051
+  specs:
+    ink3-rails (0.1.3)
+      rails
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -133,6 +140,7 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
+  ink3-rails!
   jbuilder (~> 2.0)
   jquery-rails
   paperclip
