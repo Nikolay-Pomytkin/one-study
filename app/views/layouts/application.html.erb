@@ -1,27 +1,14 @@
 <!DOCTYPE html>
 <html>
-
 <head>
-  <title>One-Study</title>
+  <title>OneStudy</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-
 <body>
 
-<%= render "layouts/navbar" %>
-
-
-
-<div class="row">
-  <div class="col-md-10 col-md-offset-1">
-    <br/> <br/> <br/>
-    <%= render "layouts/alert" %>
-
-    <%= yield %>
-
-  </div>
-</div>
+<%= yield %>
 
 </body>
 </html>
