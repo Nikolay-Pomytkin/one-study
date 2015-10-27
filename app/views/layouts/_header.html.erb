@@ -1,26 +1,45 @@
-<nav class="navbar navbar-dark" style="background-color: #99FF66;">
-  <ul class="nav navbar-nav">
+<nav class="navbar navbar-dark bg-inverse">
+  <ul class="nav navbar-nav pull-left">
     <li class="nav-item">
       <%= link_to root_path, class:"btn navbar-toggler pull-left" do %>
       &#127968;
       <% end %>
     </li>
+    <li class="nav-item">
+      <%= link_to "Schools", schools_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Teachers", teachers_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Courses", courses_path, class: "nav-link" %>
+    </li>
+    <li class="nav-item">
+      <%= link_to "Guides", guides_path, class: "nav-link" %>
+    </li>
   </ul>
-    <% if user_signed_in? %>
-    <% else %>
+  <ul class="nav navbar-nav pull-right">
+    <li class="nav-item">
+      <% if user_signed_in? %>
+        <span class="nav-link active"><b>Logged in as</b> <%= current_user.email %></span>
+      <% else %>
+        <%= link_to "Sign up", new_user_registration_path, class:"btn"%>
+        <%= link_to "Log in", new_user_session_path, class:"btn"%>
+      <% end %>
+    </li>
       <button class="navbar-toggler pull-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
         &#9776;
       </button>
-    <% end %>
+  </ul>
 </nav>
 <div class="row">
   <div class="col-md-offset-6 col-md-6">
     <div class="collapse" id="exCollapsingNavbar">
-      <div class="bg-inverse p-a">
-        <h4>FREAK</h4>
+      <div class="bg-primary p-a">
+        <h4><%= current_user.email %></h4>
         <p><span class="text-muted">Toggleable via the navbar brand.</span></p>
         <p><span class="text-muted">Toggleable via the navbar brand.</span></p>
-        <span class="text-muted">Toggleable via the navbar brand.</span>
+        <span class="text-muted">Logout</span>
       </div>
     </div>
   </div>
