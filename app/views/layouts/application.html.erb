@@ -8,15 +8,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <div class="container">
+  <div class="container-fluid">
     <div class="row">
-      <div class="col-md-8 col-md-offset-2">
+      <div class="col-md-offset-2 col-md-8">
         <!-- application wide header -->
-        <%= render "layouts/header">
+        <%= render "layouts/header" %>
         <!-- application content -->
         <%= yield %>
         <!-- application wide footer -->
-        <%= render "layouts/header" %>
+        <%= render "layouts/footer" %>
       </div>
     </div>
   </div>
