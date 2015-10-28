@@ -1,34 +1,34 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Listing Schools</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Info</th>
-      <th>City</th>
-      <th>Zipcode</th>
-      <th>State</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @schools.each do |school| %>
-      <tr>
-        <td><%= school.name %></td>
-        <td><%= school.info %></td>
-        <td><%= school.city %></td>
-        <td><%= school.zipcode %></td>
-        <td><%= school.state %></td>
-        <td><%= link_to 'Show', school %></td>
-        <td><%= link_to 'Edit', edit_school_path(school) %></td>
-        <td><%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<% @schools.each_slice(4) do |schools| %>
+  <div class="row">
+    <% schools.each do |school| %>
+      <div class="col-md-3">
+        <div class="card">
+          <div class="card-header card-info">
+            <%= link_to "#{school.name}", school %>
+          </div>
+          <div class="card-block">
+            <h4 class="card-title">
+              <%= school.info %>
+            </h4>
+            <p class="card-text">
+              Located in <%= school.city %>, <%= school.state %> (ZIP: <%= school.zipcode %>)
+              <%= link_to 'Edit', edit_school_path(school) %>
+              <%= link_to 'Destroy', school, method: :delete, data: { confirm: 'Are you sure?' } %>
+            </p>
+            <p class="card-text">
+              <small class="text-muted">
+                Created at <%= school.created_at %>
+              </small>
+            </p>
+          </div>
+        </div>
+      </div>
     <% end %>
-  </tbody>
-</table>
+  </div>
+<% end %>
+
 
 <br>
 
