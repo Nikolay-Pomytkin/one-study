@@ -5,20 +5,15 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Arvo' rel='stylesheet' type='text/css'>
   <meta name="viewport" content="width=device-width, initial-scale=1">
 </head>
 <body>
-  <div class="container-fluid">
-    <div class="row">
-      <div class="col-md-offset-1 col-md-10">
-        <!-- application wide header -->
-        <%= render "layouts/header" %>
-        <!-- application content -->
-        <%= yield %>
-        <!-- application wide footer -->
-        <%= render "layouts/footer" %>
-      </div>
-    </div>
-  </div>
+  <!-- application wide header -->
+  <%= render "layouts/header" %>
+  <!-- application content -->
+  <%= yield %>
+  <!-- application wide footer -->
+  <%= render "layouts/footer" %>
 </body>
 </html>
