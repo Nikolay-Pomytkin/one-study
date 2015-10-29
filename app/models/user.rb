@@ -7,6 +7,7 @@ class User < ActiveRecord::Base
   has_many :accesses
   has_many :guides
   has_many :notifications
+  validates_presence_of :name
 
   has_attached_file :avatar, default_url: "/images/profile/missing.png"
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/

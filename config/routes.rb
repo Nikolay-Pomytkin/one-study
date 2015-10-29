@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   root 'pages#welcome'
+  get 'user/:name' => 'users#show'
   devise_for :users
   resources :guides
   resources :courses
