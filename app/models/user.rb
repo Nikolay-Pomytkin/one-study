@@ -9,7 +9,7 @@ class User < ActiveRecord::Base
   has_many :notifications
   validates_presence_of :name
 
-  has_attached_file :avatar, default_url: "/images/profile/missing.png"
-  validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
-  validates_with AttachmentSizeValidator, attributes: :avatar, less_than: 1.megabytes
+  has_attached_file :profile_picture, default_url: "/images/profile/missing.png"
+  validates_attachment_content_type :profile_picture, content_type: /\Aimage\/.*\Z/
+  validates_with AttachmentSizeValidator, attributes: :profile_picture, less_than: 1.megabytes
 end

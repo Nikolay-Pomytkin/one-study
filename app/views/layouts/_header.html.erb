@@ -1,21 +1,21 @@
-<nav class="navbar navbar-dark bg-inverse m-a-0" style="border-radius: 0em; background-color: #0f1b54;">
+<nav class="navbar navbar-dark m-a-0" style="border-radius: 0em; background-color: #FFFFFF;">
   <ul class="nav navbar-nav pull-left">
     <li class="nav-item">
-      <%= link_to root_path, class:"btn navbar-toggler pull-left nav-link" do %>
+      <%= link_to root_path, class:"btn navbar-toggler pull-left nav-link", style: "color: #FF4161" do %>
       &#127968;
       <% end %>
     </li>
     <li class="nav-item">
-      <%= link_to "Schools", schools_path, class: "nav-link" %>
+      <%= link_to "Schools", schools_path, class: "nav-link", style: "color: #FF4161" %>
     </li>
     <li class="nav-item">
-      <%= link_to "Teachers", teachers_path, class: "nav-link" %>
+      <%= link_to "Teachers", teachers_path, class: "nav-link", style: "color: #FF4161" %>
     </li>
     <li class="nav-item">
-      <%= link_to "Courses", courses_path, class: "nav-link" %>
+      <%= link_to "Courses", courses_path, class: "nav-link", style: "color: #FF4161" %>
     </li>
     <li class="nav-item">
-      <%= link_to "Guides", guides_path, class: "nav-link" %>
+      <%= link_to "Guides", guides_path, class: "nav-link", style: "color: #FF4161" %>
     </li>
   </ul>
   <ul class="nav navbar-nav pull-right">
@@ -24,12 +24,12 @@
         <span class="nav-link active"><b>Logged in as</b> <%= current_user.name %></span>
       <% else %>
       <div class="btn-group" role="group" aria-label="Basic example">
-        <%= link_to "Sign up", new_user_registration_path, class:"btn btn-primary-outline"%>
-        <%= link_to "Log in", new_user_session_path, class:"btn btn-primary-outline"%>
+        <%= link_to "Sign up", new_user_registration_path, class:"btn btn-danger-outline", style: "color: #FF4161"%>
+        <%= link_to "Log in", new_user_session_path, class:"btn btn-danger-outline", style: "color: #FF4161"%>
       </div>
       <% end %>
     </li>
-      <button class="navbar-toggler pull-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar">
+      <button class="navbar-toggler pull-right" type="button" data-toggle="collapse" data-target="#exCollapsingNavbar" style="color: #FF4161">
         &#9776;
       </button>
   </ul>
@@ -39,6 +39,7 @@
       <div class="row">
         <div class="col-md-6 bg-success p-a">
           <div class="col-md-4">
+            <%= image_tag current_user.profile_picture.url %>
           </div>
           <div class="col-md-8">
           </div>
