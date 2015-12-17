@@ -1,4 +1,9 @@
 source 'https://rubygems.org'
+
+#One-study dependencies
+gem 'devise'
+
+#Rails dependencies
 gem 'rails', '4.2.4'
 gem 'sqlite3'
 gem 'sass-rails', '~> 5.0'
