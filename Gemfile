@@ -2,6 +2,8 @@ source 'https://rubygems.org'
 
 #One-study dependencies
 gem 'devise'
+gem "modernizr-rails"
+gem "gumby"
 
 #Rails dependencies
 gem 'rails', '4.2.4'
