@@ -14,7 +14,6 @@
 //= require jquery_ujs
 //= require gumby
 //= require ui/gumby.checkbox
-//= require ui/gumby.fittext
 //= require ui/gumby.fixed
 //= require ui/gumby.navbar
 //= require ui/gumby.radiobtn
