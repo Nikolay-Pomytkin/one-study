@@ -1,0 +1,1 @@
+##A rails web application created to make it easier for people to use and share study guides they make.
