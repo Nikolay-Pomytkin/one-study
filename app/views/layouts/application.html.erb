@@ -6,8 +6,12 @@
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
-<body>
-  <%= render 'layouts/navbar' %>
-  <%= yield %>
+<body class="teal">
+  <div class = "row">
+    <div class = "col s10 offset-s1">
+    <%= render 'layouts/navbar' %>
+    <%= yield %>
+    <%= render 'layouts/footer' %>
+  </div>
 </body>
 </html>
