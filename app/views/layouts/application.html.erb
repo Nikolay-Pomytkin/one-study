@@ -5,9 +5,10 @@
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
+  <link href='https://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
 </head>
 <body class="teal">
-  <div class = "row">
+  <div class = "row" style="font-family: 'Roboto', sans-serif;">
     <div class = "col s10 offset-s1">
     <%= render 'layouts/navbar' %>
     <%= yield %>
