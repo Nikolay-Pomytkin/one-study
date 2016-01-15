@@ -1,6 +1,6 @@
 <nav class="blue">
     <div class="nav-wrapper">
-        <a href="#" class="brand-logo center">Logo</a>
+        <%= link_to "One-Study", root_path, class: "brand-logo center" %>
         <ul id="nav" class="left">
             <li><%= link_to "Schools", schools_path %></li>
             <li><%= link_to "Teachers", teachers_path %>></li>
@@ -12,8 +12,8 @@
                 <li><%= link_to "Edit User", delete_user_session_path %></li>
                 <li><%= link_to "Log out", delete_user_session_path %></li>
             <% else %>
-                <li><%= link_to "Sign Up", new_user_session_path %></li>
-                <li><%= link_to "Sign In", new_user_registration_path %></li>
+                <li><%= link_to "Sign in", new_user_session_path %></li>
+                <li><%= link_to "Sign up", new_user_registration_path %></li>
             <% end %>
         </ul>
     </div>
