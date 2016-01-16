@@ -5,11 +5,13 @@ class SchoolsController < ApplicationController
   # GET /schools.json
   def index
     @schools = School.all
+     @teachers = @school.teachers.
   end
 
   # GET /schools/1
   # GET /schools/1.json
   def show
+     @teachers = @school.teachers.all
   end
 
   # GET /schools/new
