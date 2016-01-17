@@ -2,6 +2,7 @@ source 'https://rubygems.org'
 
 #One-study dependencies
 gem 'devise'
+gem 'material_icons'
 
 # Rails dependencies
 gem 'rails', '4.2.4'

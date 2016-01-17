@@ -9,8 +9,11 @@
         </ul>
         <ul id="nav" class="right">
             <% if user_signed_in? %>
-                <li><%= link_to "Edit User", delete_user_session_path %></li>
-                <li><%= link_to "Log out", delete_user_session_path %></li>
+                <li>
+                    <a class="dropdown-button" href="#!" data-activates="dropdown1"><%= current_user.name %></a>
+                    <i class="material-icons right">arrow_drop_down</i>
+                </li>
+
             <% else %>
                 <li><%= link_to "Sign in", new_user_session_path %></li>
                 <li><%= link_to "Sign up", new_user_registration_path %></li>
@@ -18,3 +21,8 @@
         </ul>
     </div>
 </nav>
+<ul id="dropdown1" class="dropdown-content">
+    <li><a href="#"> </a></li>
+    <li><%= link_to "Edit User", edit_user_registration_path %></li>
+    <li><%= link_to "Log out", destroy_user_session_path %></li>
+</ul>
