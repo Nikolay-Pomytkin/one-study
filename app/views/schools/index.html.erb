@@ -13,14 +13,20 @@
   </div>
   <% @schools.each do |school| %>
     <div class="col s6">
-      <h5><b><%= link_to school.name, school %></b> in <%= school.city %>, <%= school.state %> </h5>
-      (Zipcode: <%= school.zipcode %>)
-      <%= school.info %>
-      <% if user_signed_in? %>
-        <%= link_to 'Edit', edit_school_path(school), class: "btn" %>
-        <%= link_to 'Delete', school, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
-      <% end %>
-      </h5>
+      <div class="card purple">
+        <div class="card-content white-text">
+          <h5><b><%= link_to school.name, school %></b> in <%= school.city %>, <%= school.state %> </h5>
+          (Zipcode: <%= school.zipcode %>)
+          <%= school.info %>
+        </div>
+        <% if user_signed_in? %>
+          <div class="card-action">
+            <%= link_to 'Edit', edit_school_path(school), class: "btn" %>
+            <%= link_to 'Delete', school, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
+          </div>
+        <% end %>
+        </h5>
+      </div>
     </div>
   <% end %>
 </div>
