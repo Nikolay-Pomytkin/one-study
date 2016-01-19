@@ -5,8 +5,8 @@
       <h5><b><%= @school.name %></b> in <%= @school.city %>, <%= @school.state %> </h5>
       (Zipcode: <%= @school.zipcode %>)
       <%= @school.info %>
-      <ul class="collection">
-        <li class="collection-item purple lighten-2"><h3>Teachers</h3><h6>(Showing oldest 5 teachers)</h6></li>
+      <ul class="collection with-header">
+        <li class="collection-header purple lighten-2"><h3>Teachers</h3><h6>(Showing oldest 5 teachers)</h6></li>
         <% @teachers.each do |t| %>
           <li class="collection-item black-text purple lighten-4">
             <%= link_to t.name, t %>
