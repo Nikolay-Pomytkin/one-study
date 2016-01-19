@@ -6,7 +6,7 @@
       </div>
     <% if user_signed_in? %>
       <div class="card-action center">
-        <%= link_to 'New School', new_school_path, class: "btn" %>
+        <%= link_to 'New School', new_school_path, class: "btn white black-text waves-effect waves-purple" %>
       </div>
     <% end %>
     </div>
@@ -21,8 +21,8 @@
         </div>
         <% if user_signed_in? %>
           <div class="card-action">
-            <%= link_to 'Edit', edit_school_path(school), class: "btn" %>
-            <%= link_to 'Delete', school, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
+            <%= link_to 'Edit', edit_school_path(school), class: "btn white black-text waves-effect waves-purple" %>
+            <%= link_to 'Delete', school, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn white black-text waves-effect waves-purple" %>
           </div>
         <% end %>
         </h5>
