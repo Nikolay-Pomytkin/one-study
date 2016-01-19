@@ -1,35 +1,26 @@
-<script>
-  $(document).ready(function(){
-    $('.collapsible').collapsible({
-      accordion : true
-    });
-  });
-</script>
-<div class="card purple" style="padding-bottom: 40px;">
-<div class="card purple lighten-2">
-<h1>&nbsp;Schools  </h1>
+<div class="row">
+  <div class="col s4 offset-s4">
+    <div class="card purple lighten-2">
+      <div class="card-content white-text">
+        <span class="card-title center"><h4>&nbsp;Schools</h4></span>
+      </div>
     <% if user_signed_in? %>
-      <%= link_to 'New School', new_school_path, class: "btn" %>
+      <div class="card-action center">
+        <%= link_to 'New School', new_school_path, class: "btn" %>
+      </div>
     <% end %>
-
-</div>
-<ul class="collapsible" data-collapsible="accordion">
+    </div>
+  </div>
   <% @schools.each do |school| %>
-    <li>
-      <div class="collapsible-header blue">
-        <h5><b><%= link_to school.name, school %></b> in <%= school.city %>, <%= school.state %> </h5>
-      </div>
-      <div class="collapsible-body light-blue">
-        <h5>
-          (Zipcode: <%= school.zipcode %>)
-          <%= school.info %>
-          <% if user_signed_in? %>
-                <%= link_to 'Edit', edit_school_path(school), class: "btn" %>
-                <%= link_to 'Delete', school, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
-          <% end %>
-        </h5>
-      </div>
-    </li>
-<% end %>
-</ul>
+    <div class="col s6">
+      <h5><b><%= link_to school.name, school %></b> in <%= school.city %>, <%= school.state %> </h5>
+      (Zipcode: <%= school.zipcode %>)
+      <%= school.info %>
+      <% if user_signed_in? %>
+        <%= link_to 'Edit', edit_school_path(school), class: "btn" %>
+        <%= link_to 'Delete', school, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn" %>
+      <% end %>
+      </h5>
+    </div>
+  <% end %>
 </div>
