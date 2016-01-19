@@ -1,29 +1,27 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Name:</strong>
-  <%= @school.name %>
-</p>
-
-<p>
-  <strong>Info:</strong>
-  <%= @school.info %>
-</p>
-
-<p>
-  <strong>State:</strong>
-  <%= @school.state %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @school.city %>
-</p>
-
-<p>
-  <strong>Zipcode:</strong>
-  <%= @school.zipcode %>
-</p>
-
-<%= link_to 'Edit', edit_school_path(@school) %> |
-<%= link_to 'Back', schools_path %>
+  <div class="card purple">
+    <div class="card-content white-text">
+      <h5><b><%= @school.name %></b> in <%= @school.city %>, <%= @school.state %> </h5>
+      (Zipcode: <%= @school.zipcode %>)
+      <%= @school.info %>
+      <ul class="collection">
+        <li class="collection-item purple lighten-2"><h3>Teachers</h3><h6>(Showing oldest 5 teachers)</h6></li>
+        <% @teachers.each do |t| %>
+          <li class="collection-item black-text purple lighten-4">
+            <%= link_to t.name, t %>
+            <p>
+              <b>Description: </b><%= t.description %>
+            </p>
+          </li>
+        <% end %>
+    </div>
+    <div class="card-action">
+      <% if user_signed_in? %>
+        <%= link_to 'Edit', edit_school_path(@school), class: "btn white black-text waves-effect waves-purple" %>
+        <%= link_to 'Delete', @school, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn white black-text waves-effect waves-purple" %>
+    <% end %>
+      <%= link_to 'Back', schools_path, class: "btn white black-text waves-effect waves-purple" %>
+    </div>
+    </h5>
+  </div>
