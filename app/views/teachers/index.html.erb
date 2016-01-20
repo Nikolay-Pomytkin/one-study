@@ -1,31 +1,25 @@
 <p id="notice"><%= notice %></p>
-
-<h1>Listing Teachers</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Description</th>
-      <th>School</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @teachers.each do |teacher| %>
-      <tr>
-        <td><%= teacher.name %></td>
-        <td><%= teacher.description %></td>
-        <td><%= teacher.school_id %></td>
-        <td><%= link_to 'Show', teacher %></td>
-        <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
-        <td><%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+<div class="row">
+  <div class="col s4 offset-s4">
+    <div class="card purple lighten-2">
+      <div class="card-content white-text">
+        <span class="card-title center"><h4>&nbsp;Teachers</h4></span>
+      </div>
+    <% if user_signed_in? %>
+      <div class="card-action center">
+        <%= link_to "New Teacher", new_teacher_path, class: "btn white black-text"%>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
-<br>
-
-<%= link_to 'New Teacher', new_teacher_path %>
+    </div>
+  </div>
+    <div class="col s12">
+  <ul class="collection">
+<% @teachers.each do |teacher| %>
+  <li class="collection-item">
+    <%= link_to teacher.name, teacher %> who teaches at <%= link_to teacher.school.name, @school %>
+      <br>
+      Description: <%= teacher.description %>
+  </li>
+<% end %>
+  </div>
+</div>
