@@ -1,21 +1,17 @@
 <p id="notice"><%= notice %></p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @teacher.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @teacher.description %>
-</p>
-
-<p>
-  <strong>School:</strong>
-  <%= @teacher.school_id %>
-</p>
-
-<%= link_to 'Edit', edit_teacher_path(@teacher) %> |
-<%= link_to 'Destroy', teacher, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-
-<%= link_to 'Back', teachers_path %>
+<div class="card  purple lighten-2">
+  <div class="card-content white-text">
+    <span class="card-title center"><b><%= @teacher.name %></b> who works at <b><%= @teacher.school.name%></b></span>
+    <br/>
+    Description: <%= @teacher.description %>
+    <br/>
+    School: <%= @teacher.school.name %>
+  </div>
+  <div class="card-action">
+    <% if user_signed_in? %>
+      <%= link_to 'Edit', edit_teacher_path(@teacher), class: "btn dark-blue"%>
+      <%= link_to 'Delete', @teacher, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn dark-blue" %>
+    <% end %>
+    <%= link_to 'Back', teachers_path, class: "btn dark-blue" %>
+  </div>
+</div>
