@@ -21,7 +21,7 @@
   </div>
   
   <% if params[:school_id] %>
-    <%= hidden_field_tag :school_id, params[:school_id] %>
+    <%= hidden_field_tag 'teacher[school_id]', params[:school_id] %> 
   <% else %>
     <div class="field">
       <%= f.label :school_id %><br>

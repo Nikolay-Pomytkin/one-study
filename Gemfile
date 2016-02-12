@@ -2,7 +2,11 @@ source 'https://rubygems.org'
 
 #One-study dependencies
 gem 'devise'
-gem 'material_icons'
+gem 'bootstrap', '~> 4.0.0.alpha3'
+
+source 'https://rails-assets.org' do
+  gem 'rails-assets-tether', '>= 1.1.0'
+end
 
 # Rails dependencies
 gem 'rails', '4.2.4'

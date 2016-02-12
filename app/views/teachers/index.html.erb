@@ -16,7 +16,7 @@
   <ul class="collection">
 <% @teachers.each do |teacher| %>
   <li class="collection-item">
-    <%= link_to teacher.name, teacher %> who teaches at <%= link_to teacher.school.name, @school %>
+    <%= link_to teacher.name, teacher %> who teaches at <%= link_to teacher.school.name, teacher.school %>
       <br>
       Description: <%= teacher.description %>
   </li>
