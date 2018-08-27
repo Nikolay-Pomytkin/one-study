@@ -9,6 +9,7 @@ class Guide(models.Model):
     )
     title = models.CharField(max_length=150)
     author = models.ForeignKey(User, on_delete=models.CASCADE, related_name="guides")
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name="guides")
     body = models.TextField()
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -21,6 +22,7 @@ class Guide(models.Model):
 class Course(models.Model):
     name = models.CharField(max_length=200)
     description = models.TextField()
+    teacher = models.ForeignKey(Teacher, on_delete=models.CASCADE, related_name="courses")
     # will probably add fields regarding popularity of the course (to filter out stupidly created courses)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -32,6 +34,8 @@ class Course(models.Model):
 
 class Teacher(models.Model):
     name = models.CharField(max_length=150)
+    description = models.TextField()
+    school = models.ForeignKey(School, on_delete=models.CASCADE, related_name="teachers")
     # also add fields for popularity (clicks, upvotes, etc)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
@@ -43,11 +47,11 @@ class Teacher(models.Model):
 
 class School(models.Model):
     name = models.CharField(max_length=150)
-    # DON'T FORGET TO ADD MORE FIELDS!
+    location = models.CharField(max_length=250)
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(User, on_delete=SET_NULL, related_name="courses_created")
     class Meta:
         ordering = '-publish'
     def __str__():
-        return self.title    
+        return self.title
