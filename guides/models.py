@@ -25,6 +25,10 @@ class Course(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(User, on_delete=SET_NULL, related_name="courses_created")
+    class Meta:
+        ordering = '-publish'
+    def __str__():
+        return self.title
 
 class Teacher(models.Model):
     name = models.CharField(max_length=150)
@@ -32,6 +36,10 @@ class Teacher(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(User, on_delete=SET_NULL, related_name="courses_created")
+    class Meta:
+        ordering = '-publish'
+    def __str__():
+        return self.title
 
 class School(models.Model):
     name = models.CharField(max_length=150)
@@ -39,4 +47,7 @@ class School(models.Model):
     created = models.DateTimeField(auto_now_add=True)
     updated = models.DateTimeField(auto_now=True)
     created_by = models.ForeignKey(User, on_delete=SET_NULL, related_name="courses_created")
-    
+    class Meta:
+        ordering = '-publish'
+    def __str__():
+        return self.title    
